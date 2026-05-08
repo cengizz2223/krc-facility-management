@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Clock, CheckCircle2, Send, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Clock, CheckCircle2, Send } from "lucide-react";
 
 function FadeUp({ children, delay = 0, className }: {
   children: React.ReactNode; delay?: number; className?: string;

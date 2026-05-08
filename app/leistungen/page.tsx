@@ -5,7 +5,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import {
   Wrench, Leaf, Trash2, Zap, Building2, Settings,
-  CheckCircle2, ArrowRight, ChevronRight
+  CheckCircle2, ArrowRight
 } from "lucide-react";
 
 function FadeUp({ children, delay = 0, className }: {

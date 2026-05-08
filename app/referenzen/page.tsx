@@ -142,7 +142,7 @@ export default function ReferenzenPage() {
                       {t.service}
                     </span>
                   </div>
-                  <p className="text-zinc-600 text-sm leading-relaxed mb-6 flex-1">"{t.text}"</p>
+                  <p className="text-zinc-600 text-sm leading-relaxed mb-6 flex-1">&ldquo;{t.text}&rdquo;</p>
                   <div className="mt-auto pt-5 border-t border-zinc-100">
                     <StarRating rating={t.rating} />
                     <div className="mt-3 flex items-start justify-between">

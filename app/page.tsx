@@ -161,7 +161,7 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
+function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
     <motion.div
@@ -214,7 +214,7 @@ export default function HomePage() {
   return (
     <>
       {/* ══ HERO ══ */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+      <section className="relative overflow-hidden bg-white lg:min-h-screen lg:flex lg:items-center">
         {/* Background decoration */}
         <div className="absolute inset-0 bg-hero-pattern pointer-events-none" />
         <div className="absolute top-1/3 right-0 w-96 h-96 bg-brand-100/40 rounded-full blur-3xl pointer-events-none" />
@@ -232,7 +232,7 @@ export default function HomePage() {
           }}
         />
 
-        <div className="container-xl relative z-10 pt-28 pb-20">
+        <div className="container-xl relative z-10 pt-24 pb-14 md:pt-28 md:pb-20">
           <div className="max-w-4xl">
             {/* Badge */}
             <motion.div
@@ -264,7 +264,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-xl text-zinc-500 leading-relaxed max-w-2xl mb-10"
+              className="text-base md:text-xl text-zinc-500 leading-relaxed max-w-2xl mb-8 md:mb-10"
             >
               KRC Facility Management — Berlins zuverlässiger Partner für
               Hausmeisterservice, Gartenpflege, Entrümpelung, Elektrik und
@@ -276,7 +276,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 mb-16"
+              className="flex flex-col sm:flex-row gap-3 mb-8 md:mb-16"
             >
               <Link href="/kontakt" className="btn-primary text-base px-7 py-4">
                 Kostenlose Anfrage stellen
@@ -304,12 +304,12 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator — desktop only */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
         >
           <span className="text-xs text-zinc-400 tracking-widest uppercase">Mehr entdecken</span>
           <motion.div
@@ -451,11 +451,11 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Floating stat cards */}
+                {/* Floating stat cards — hidden on mobile to avoid overflow */}
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
                   transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                  className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-zinc-100"
+                  className="hidden sm:block absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-zinc-100"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center">
@@ -471,7 +471,7 @@ export default function HomePage() {
                 <motion.div
                   animate={{ y: [0, 6, 0] }}
                   transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-zinc-100"
+                  className="hidden sm:block absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-zinc-100"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center">
@@ -508,7 +508,7 @@ export default function HomePage() {
                 <div className="card p-7 h-full flex flex-col">
                   <Quote size={32} className="text-brand-200 mb-4 fill-brand-100" />
                   <p className="text-zinc-600 text-sm leading-relaxed mb-6 flex-1">
-                    "{t.text}"
+                    &ldquo;{t.text}&rdquo;
                   </p>
                   <div className="mt-auto">
                     <StarRating rating={t.rating} />
@@ -543,7 +543,7 @@ export default function HomePage() {
             <div className="space-y-3">
               {faqs.map((faq, i) => (
                 <FadeUp key={i} delay={i * 0.07}>
-                  <FaqItem q={faq.q} a={faq.a} index={i} />
+                  <FaqItem q={faq.q} a={faq.a} />
                 </FadeUp>
               ))}
             </div>

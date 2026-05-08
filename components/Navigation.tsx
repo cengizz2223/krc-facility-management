@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
@@ -43,7 +43,7 @@ export default function Navigation() {
         )}
       >
         <div className="container-xl">
-          <div className="flex items-center justify-between h-16 md:h-18">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group" aria-label="KRC Facility Management">
               <div className="relative flex items-center justify-center w-9 h-9 rounded-lg bg-brand-600 text-white shadow-sm group-hover:shadow-md transition-shadow">
